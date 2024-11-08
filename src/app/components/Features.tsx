@@ -4,7 +4,7 @@ import { FaCalendarAlt, FaUsersCog, FaBell } from 'react-icons/fa';
 
 const Features = () => {
   return (
-    <section id="features" className="container mx-auto flex flex-col items-center text-center p-10 bg-[var(--bg-color)] text-[var(--text-color)]">
+    <section id="features" className="container h-[600] justify-center mx-auto flex flex-col items-center text-center p-10 bg-[var(--bg-color)] text-[var(--text-color)]">
       <h2 className="text-3xl font-bold mb-8">Por que escolher nosso Sistema de Agendamento?</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <FeatureItem 

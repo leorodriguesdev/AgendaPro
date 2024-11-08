@@ -5,7 +5,7 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section className="flex flex-col container mx-auto  items-center text-center p-10 bg-[var(--bg-color)] text-[var(--text-color)]">
+    <section className="flex flex-col h-[600] justify-center container mx-auto items-center text-center p-10 bg-[var(--bg-color)] text-[var(--text-color)]">
       <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight max-w-4xl">
         Gerencie seus <span className="text-[var(--primary-color)]">Agendamentos</span> com Facilidade
       </h1>
