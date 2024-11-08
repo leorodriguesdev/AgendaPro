@@ -6,8 +6,6 @@ import React, { useState, useEffect } from 'react';
 import {
     AiOutlineUser,
     AiOutlineMail,
-    AiOutlineCalendar,
-    AiOutlineClockCircle,
 } from 'react-icons/ai';
 import { FaBell } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
@@ -25,28 +23,24 @@ const Agendamento = () => {
         notificacao: false,
     });
 
-    const [theme, setTheme] = useState('theme-light');
-
-    const toggleTheme = () => {
-        setTheme(theme === 'theme-light' ? 'theme-dark' : 'theme-light');
-    };
+    const [today, setToday] = useState('');
 
     useEffect(() => {
-        document.documentElement.className = theme;
-    }, [theme]);
-
-    // Obter a data atual no formato YYYY-MM-DD
-    const today = new Date().toISOString().split('T')[0];
+        setToday(new Date().toISOString().split('T')[0]);
+    }, []);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
     ) => {
-        const { name, value, type, checked } = e.target;
+        const { name, value, type } = e.target;
+        const checked = (e.target as HTMLInputElement).checked; // Casting para acessar `checked` com segurança
+
         setFormData((prevData) => ({
             ...prevData,
             [name]: type === 'checkbox' ? checked : value,
         }));
     };
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -55,7 +49,7 @@ const Agendamento = () => {
         // Exibe o toast de sucesso
         toast.success('Agendamento realizado com sucesso! Você receberá a confirmação por e-mail.', {
             position: "bottom-right",
-            autoClose: 5000, // Fecha automaticamente após 5 segundos
+            autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -78,8 +72,9 @@ const Agendamento = () => {
         <section className="flex flex-col items-center p-6 min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] transition-colors duration-300">
             <div className="w-full max-w-md mb-8">
                 <h1 className="text-3xl font-bold text-center bg-[var(--bg-card)] p-6 rounded-md shadow-md">
-                    {empresa ? empresa.toUpperCase() : 'EMPRESA'}
+                    {empresa && typeof empresa === 'string' ? empresa.toUpperCase() : 'EMPRESA'}
                 </h1>
+
             </div>
 
             <form
@@ -145,7 +140,7 @@ const Agendamento = () => {
                         name="dia"
                         value={formData.dia}
                         onChange={handleChange}
-                        min={today} // Adicionamos o atributo min com a data atual
+                        min={today}
                         className="w-full p-4 border border-[var(--input-border)] rounded-lg bg-[var(--input-bg)] text-[var(--text-color)] focus:outline-none focus:ring-2 focus:ring-purple-600 cursor-pointer"
                         required
                     />
