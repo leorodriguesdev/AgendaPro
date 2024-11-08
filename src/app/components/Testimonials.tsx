@@ -5,7 +5,7 @@ const testimonials = [
   { name: "Lucas Almeida", company: "Salão Bella Vida", text: "O sistema de agendamento facilitou muito o atendimento dos nossos clientes. Agora é tudo muito mais organizado!" },
   { name: "Mariana Costa", company: "Academia PowerFit", text: "Finalmente conseguimos oferecer agendamentos online. Nossos alunos adoram a praticidade e eu ganho muito tempo!" },
   { name: "Fernando Silva", company: "Clínica Saúde Já", text: "O sistema é completo e super fácil de usar. Nossos pacientes conseguem marcar consultas sem precisar ligar para a recepção." },
-  { name: "Sofia Ribeiro", company: "Loja de Roupas", text: "Poder personalizar o sistema com a cara da minha empresa fez toda a diferença. Recomendo para qualquer negócio que precise de agendamentos." },
+  { name: "Sofia Ribeiro", text: "Poder personalizar o sistema com a cara da minha empresa fez toda a diferença. Recomendo para qualquer negócio que precise de agendamentos." },
 ];
 
 const Testimonials = () => {
@@ -24,7 +24,7 @@ const Testimonials = () => {
 const TestimonialCard = ({ name, company, text }: { name: string, company?: string, text: string }) => {
   return (
     <div className="flex flex-col p-6 bg-[var(--bg-card)] rounded-lg shadow-md text-center">
-      <p className="text-[var(--text-color)] mb-4">"{text}"</p>
+      <p className="text-[var(--text-color)] mb-4">&quot;{text}&quot;</p>
       <div className="text-sm text-[var(--text-color)] font-semibold">{name}</div>
       {company && <div className="text-xs text-[var(--text-color)]">{company}</div>}
     </div>
