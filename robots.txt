@@ -1,0 +1,12 @@
+# Bloqueia o acesso à pasta interna "_next" (conteúdo gerado pelo Next.js)
+User-agent: *
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /login/
+
+# Permite o acesso à raiz do site
+Allow: /
+
+# Especifica o local do sitemap (caso exista)
+Sitemap: https://agenda-pro-two.vercel.app/sitemap.xml
